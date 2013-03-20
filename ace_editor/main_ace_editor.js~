@@ -1,0 +1,146 @@
+window.AceEditor = (function(){
+	this.defaultConfig = {theme:"twilight",isMultiFile:false};
+	this.AceEditorConfig = new Array();
+	this.baseUrl='';
+	
+	var AceEditor = {
+			init:function(editor_id,configObj){
+				findBaseUrl();
+				var Editor = new Array();
+				Editor['config'] = configObj;
+				Editor['file'] = new Array();
+				AceEditorConfig[editor_id] = Editor;
+				initEditor(editor_id);
+				//load(editor_id);
+			},
+
+			getValue:function(editor_id){
+				
+			},
+			setValue:function(editor_id, text){
+				AceEditorConfig[editor_id]['file'][0]['editor'].setValue(text);
+			}
+	};
+	return AceEditor;
+})();
+
+function findBaseUrl(){
+	var scripts = document.getElementsByTagName('script');
+	var url = "";
+	for(var i=0; i<scripts.length; i++ ){
+		if (scripts[i].src && scripts[i].src.match("ace_editor/main_ace_editor") ) {
+			var src = unescape( scripts[i].src ); // use unescape for utf-8 encoded urls
+			src = src.substring(0, src.lastIndexOf('/')+1);
+			url = src;
+			break;
+		}
+	}
+	if(url.trim().length == 0){
+		try{
+			throw "\".../ace_editor/main_ace_editor...\" not found in script src ! base directory must be \"ace_editor\" and main js file must be \"main_ace_editor.js\"";
+		}catch(err){
+			console.log("Error: "+err);
+		}
+	}
+	this.baseURL = url;
+}
+
+function load(editor_id){
+	var element = document.getElementById(editor_id);
+	if(element == 'null' || element == undefined){
+		setTimeout("load('"+editor_id+"')", 50);
+	}
+	else{
+		initEditor(editor_id);
+	}
+}
+
+var file = new Array();
+function initEditor(editor_id){
+	createDiv(editor_id);
+	var file = newFile(editor_id,'fileId1','Untitled');
+	this.AceEditorConfig[editor_id]['file'][0] = file;
+}
+
+function createNewFile(editor_id){
+	var fileLen = this.AceEditorConfig[editor_id]['file'].length;
+	file = newFile(editor_id,'fileId'+(fileLen+1),'Untitled');
+	this.AceEditorConfig[editor_id]['file'][fileLen] = file;
+	changeFile(editor_id+file.fileId,editor_id+"file");
+}
+
+function changeFile(editorFileId,editorFileClass){
+	var elements = document.getElementsByClassName(editorFileClass);
+	for(var i=0;i<elements.length;i++ ){
+		elements[i].style.display = "none";
+	}
+	document.getElementById(editorFileId).style.display = "block";
+}
+
+function newFile(editor_id,fileId,fileName){
+	var isMultiFile = this.AceEditorConfig[editor_id]['config'].isMultiFile;
+	if(isMultiFile){
+		var fileNameDiv = document.createElement("div");
+		fileNameDiv.setAttribute('class', 'fileName');
+		fileNameDiv.setAttribute('onclick', "changeFile('"+editor_id+fileId+"','"+editor_id+"file"+"')");
+		fileNameDiv.innerHTML = fileName;
+		document.getElementById('fileList_'+editor_id).appendChild(fileNameDiv);
+	}
+	
+	var editerDiv = document.createElement("div");
+	editerDiv.setAttribute('id', editor_id+fileId);
+	editerDiv.setAttribute('class', editor_id+"file");
+	document.getElementById('fileContainer_'+editor_id).appendChild(editerDiv);
+	
+	var editor = ace.edit(editor_id+fileId);
+	
+	var theme = this.AceEditorConfig[editor_id]['config'].theme;
+	if(theme == undefined || theme == null || theme.trim().length == 0){
+		theme = this.defaultConfig.theme;
+	}
+	
+	editor.setTheme("ace/theme/"+theme);
+	editor.setShowPrintMargin(false);
+	editor.getSession().setMode("ace/mode/java");
+	editor.getSession().setUseWrapMode(false);
+	var file = new Array();
+	file['fileId'] = fileId;
+	file['fileName'] = fileName;
+	file['editor'] = editor; 
+	return file;
+	
+}
+
+function createDiv(editor_id){
+	var toolbar = document.createElement("div");
+	toolbar.setAttribute('id', 'toolbar_'+editor_id);
+	toolbar.setAttribute('class', 'editor_toolbar');
+	toolbar.innerHTML = toolbarFn(editor_id);
+	document.getElementById(editor_id).appendChild(toolbar);
+	
+	var isMultiFile = this.AceEditorConfig[editor_id]['config'].isMultiFile;
+	if(isMultiFile){
+		var fileList = document.createElement("div");
+		fileList.setAttribute('id', 'fileList_'+editor_id);
+		fileList.setAttribute('class', 'editor_filelist');
+		document.getElementById(editor_id).appendChild(fileList);
+	}
+	
+	var fileContainer = document.createElement("div");
+	fileContainer.setAttribute('id', 'fileContainer_'+editor_id);
+	fileContainer.setAttribute('class', 'editor_fileContainer');
+	document.getElementById(editor_id).appendChild(fileContainer);
+}
+
+function toolbarFn(editor_id){
+		
+	var toolbar = '';
+	var isMultiFile = this.AceEditorConfig[editor_id]['config'].isMultiFile;
+	if(isMultiFile){
+			var newFile = '<div onclick=\"createNewFile(\''+editor_id+'\')\"><img src=\"'+this.baseURL+'/images/newFile.png\" alt=\"NewFile\" title=\"Open New File\" style=\"width:22px;height:22px;\" ></div>';
+			toolbar = toolbar+newFile;
+	}
+	 
+	return toolbar;
+}
+

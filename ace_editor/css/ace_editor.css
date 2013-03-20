@@ -1,0 +1,117 @@
+.editorClass{
+	position:relative;
+	width: 400px;
+	height: 200px;
+	float:left;	
+}
+
+.ace_editor{
+	width: 100%;
+	height: 100%;
+}
+
+.editor_help{
+	position: absolute;
+	margin-top: 77px;
+	z-index: 115;
+	background: #fff;
+	border: solid 1px #888;
+	padding:10px;
+	margin-left:10px;
+	display: none;
+}
+.editor_help p.closeImg{
+	margin: 0;
+	text-align: right;
+}
+.editor_toolbar, .editor_filelist{
+	width: 100%;
+	float:left;
+}
+.editor_filelist{
+	border: solid 1px #888;
+	border-top:none;
+	border-bottom:none;
+	background: #94B0CC;
+	height: 20px;
+}
+.editor_toolbar{
+	border: solid 1px #888;
+	background: #B8DBFF;
+	height: 25px;
+}
+.editor_toolbar .separator{
+	width: 2px;
+	background: #888;
+	margin: 2px;
+	cursor: default;
+}
+
+.editor_toolbar > div{
+	float:left;
+	cursor:pointer;
+	margin: 2px;	
+}
+.editor_toolbar > div > img{
+	width:22px;height:22px;
+}
+.editor_toolbar > div select {
+	font-size:10px;
+}
+.editor_filelist .fileName{
+	float: left;
+	cursor: pointer;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	color: #000;
+	background: #ccc;
+	min-width: 50px;
+	padding: 0 2px;
+	border-right: solid 1px #888;
+}
+.editor_filelist .fileName:hover{
+	background: #ffffff;
+}
+
+.editor_filelist .activeFile{
+	background: #046380;
+	color: #FFF;	
+}
+.editor_filelist .activeFile:hover{
+	background: #046380;
+	color: #FFF;
+}
+.editor_filelist .fileName img{
+	width:16px;height:15px;margin-left:5px;float:right;
+	margin-top: 2px;
+}
+
+.editor_status {
+	border: solid 1px #888;
+	background: #B8DBFF;
+	float:left;
+	width:100%;
+}
+.editor_status .editorStatus{
+	float: right;
+	font-size:12px;
+	margin-right: 5px;
+}
+.editor_fileContainer{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	border: solid 1px #888;
+	float:left;
+	background: #ccc;
+}
+
+.editor_fileContainer > div{
+	position: absolute;
+}
+
+.editor_toggle{
+	clear: left;	
+}
+
