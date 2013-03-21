@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page import="java.util.Date"%>
+<html>
+<head>
+<title>ACE in Action</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="https://github.com/erharindra/extednded-ace-editor/blob/master/ace_editor/src/ace.js"></script>
+<script type="text/javascript" src="https://github.com/erharindra/extednded-ace-editor/blob/master/ace_editor/main_ace_editor.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+  AceEditor.init("editor", {theme:"twilight",isMultiFile:true} );
+});
+
+</script>
+<style type="text/css">
+</style>
+</head>
+<body>
+
+	<textarea id="editor" style="width:400px;height:40%;"></textarea>
+
+</body>
+</html>
