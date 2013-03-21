@@ -38,11 +38,20 @@ window.AceEditor = (function(){
 			getCurrentFile:function(editor_id){
 				return AceEditorConfig[editor_id]['currentFile'];
 			},
+			getFile:function(fileId, editor_id){
+				return AceEditorConfig[editor_id]['file'][fileId];
+			},
 			getCurrentFileEditor:function(editor_id){
 				return AceEditorConfig[editor_id]['currentFile']['editor'];
 			},
+			getFileEditor:function(fileId, editor_id){
+				return AceEditorConfig[editor_id]['file'][fileId]['editor'];
+			},
 			getCurrentFileName:function(editor_id){
-					return AceEditorConfig[editor_id]['currentFile']['fileName'];
+				return AceEditorConfig[editor_id]['currentFile']['fileName'];
+			},
+			getFileName:function(fileId,editor_id){
+				return AceEditorConfig[editor_id]['file'][fileId]['fileName'];
 			},
 			changeCurrentFileName:function(editor_id,newFileName){
 				if(newFileName !=undefined && newFileName != null && newFileName.trim().length > 0){
@@ -100,6 +109,10 @@ window.AceEditor = (function(){
 				return AceEditorConfig[editor_id]['file'];
 			},
 			closeFile: function( fileId, editor_id ){
+				closeFile(fileId, editor_id);
+			},
+			closeCurrentFile: function(editor_id ){
+				var fileId = AceEditorConfig[editor_id]['currentFile']['fileId'];
 				closeFile(fileId, editor_id);
 			},
 			closeEmptyFile: function( editor_id ){
