@@ -1,0 +1,97 @@
+INITIALIZE EXTENDE ACE EDITOR:
+
+<script type="text/javascript" src=" .../.../ace_editor/src/ace.js"></script>
+<script type="text/javascript" src=" .../../ace_editor/main_ace_editor.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+  AceEditor.init("editor",
+        {
+          theme:"twilight",
+          isMultiFile:true
+        }
+  );
+});
+
+// or
+window.onload = function(){
+  AceEditor.init("editor",
+        {
+          theme:"twilight",
+          isMultiFile:true
+        }
+  );
+
+};
+</script>
+<body>
+
+<textarea id="editor" style="width:400px;height:400px; " >
+<! -- Must provide width and height using inline css -->
+</body>
+--------------------------------------------------------------------------------------------
+
+AceEditor.init(editor_id ,{ configration });
+
+  editor_id: required | element id where editor will be placed.
+
+  Configration:
+
+      defaultFileName:string,
+      isMultiFile:true|false,
+      theme:string,
+      callbackOnChangeFile:function name,
+      confirmOnCloseFile:true|false,
+      wordWrap:true|false
+
+Functions:
+
+  AceEditor.getValue(editor_id);
+        Return the value of editor, In case of multi file return the value of current file.
+
+
+  AceEditor.setValue(editor_id, text);
+        Set new value to editor ,In case of multi file text is set to current file.
+
+
+  AceEditor.changeCurrentFileName(editor_id,newFileName);
+        Change the file name of curent file.
+
+
+  AceEditor.openFile(editor_id, fileObj);
+        Opent new file,
+        fileObj = { fileName: " ", text : " " } 
+
+
+  AceEditor.toggleEditor(editor_id, el);
+      Toggle editor between text area and editor,
+      el - checkbox or rediobutton element,  
+      Example - <input type="checkbox" onclick= "AceEditor.toggleEditor('editor',this);">
+  
+
+  AceEditor.closeEmptyFile(editor_id);
+    Close empty files.
+
+
+  AceEditor.getAllFiles(editor_id);
+    Return all fileId od editor
+
+
+  AceEditor.closeFile(editor_id,fileId);
+    close the file
+
+
+  AceEditor.closeCurrentFile(editor_id );
+  	close current file,
+
+
+  AceEditor.getCurrentFile(editor_id);
+    return curent file obj. [  fileId, fileName, fileClass, fileNameId fileNameClass , editor ]
+
+
+  AceEditor.getCurrentFileEditor(editor_id);
+    return editor object , see http://ace.ajax.org/#nav=api&api=editor 
+
+
+	AceEditor.getCurrentFileName(editor_id);
+    return current file name;
