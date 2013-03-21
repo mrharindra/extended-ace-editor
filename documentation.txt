@@ -1,4 +1,4 @@
-INITIALIZE EXTENDE ACE EDITOR:
+INITIALIZE EXTENDED ACE EDITOR:
 
 <script type="text/javascript" src=" .../.../ace_editor/src/ace.js"></script>
 <script type="text/javascript" src=" .../../ace_editor/main_ace_editor.js"></script>
@@ -74,24 +74,35 @@ Functions:
 
 
   AceEditor.getAllFiles(editor_id);
-    Return all fileId od editor
+    Return all fileId
 
 
-  AceEditor.closeFile(editor_id,fileId);
-    close the file
+  AceEditor.closeFile(fileId , editor_id);
+    close the file of given fileId
 
 
   AceEditor.closeCurrentFile(editor_id );
-  	close current file,
+    close current file,
 
 
   AceEditor.getCurrentFile(editor_id);
-    return curent file obj. [  fileId, fileName, fileClass, fileNameId fileNameClass , editor ]
+    return file obj of current file [  fileId, fileName, fileClass, fileNameId fileNameClass , editor ]
+
+  AceEditor.getFile(editor_id);
+    return file obj of given fileId [  fileId, fileName, fileClass, fileNameId fileNameClass , editor ]
 
 
   AceEditor.getCurrentFileEditor(editor_id);
-    return editor object , see http://ace.ajax.org/#nav=api&api=editor 
+    return editor object of current file , see http://ace.ajax.org/#nav=api&api=editor 
 
 
-	AceEditor.getCurrentFileName(editor_id);
-    return current file name;
+  AceEditor.getFileEditor(fileId, editor_id);
+    return editor object of given fileId , see http://ace.ajax.org/#nav=api&api=editor 
+
+
+  AceEditor.getCurrentFileName(editor_id);
+    return file name current file;
+
+
+   AceEditor.getFileName(fileId, editor_id);
+	return the file name of given fileId
