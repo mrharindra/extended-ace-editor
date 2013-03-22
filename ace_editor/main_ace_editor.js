@@ -1,13 +1,7 @@
-/*@ Harindra Chaudhary
- * 
- * defaultFileName:string,
- * isMultiFile:true|false,
- * theme:string,
- * callbackOnChangeFile:function name,
- * confirmOnCloseFile:true|false,
- * wordWrap,
- * 
- * */
+/*
+ * @ Harindra Chaudhary
+*/
+
 var loader = false;
 window.AceEditor = (function(){
 	this.defaultConfig = {theme:"twilight",isMultiFile:false};
@@ -48,7 +42,7 @@ window.AceEditor = (function(){
 				return AceEditorConfig[editor_id]['file'][fileId]['editor'];
 			},
 			getCurrentFileName:function(editor_id){
-				return AceEditorConfig[editor_id]['currentFile']['fileName'];
+					return AceEditorConfig[editor_id]['currentFile']['fileName'];
 			},
 			getFileName:function(fileId,editor_id){
 				return AceEditorConfig[editor_id]['file'][fileId]['fileName'];
@@ -527,16 +521,137 @@ function fullScreenTool(editor_id){
 }
 
 function selectSyntaxTool(editor_id){
-	var syntax = '<div><select onchange=\"changeSyntax(\''+editor_id+'\',this)\" id=\"selectSyntax_'+editor_id+'\">'+
-	'<option value="">--Syntax--</option>'+
-	'<option value=\"java\">Java</option>'+
-	'<option value=\"c_cpp\">C</option>'+
-	'<option value=\"c_cpp\">C++/CPP</option>'+
-	'<option value=\"php\">PHP</option>'+
-	'<option value=\"perl\">Perl</option>'+
-	'<option value=\"python\">Python</option>'+
-	'</select>'+
-	'</div>';
+	var syntaxList = this.AceEditorConfig[editor_id]['config'].syntax;
+	var options = '';
+	if(syntaxList != undefined && syntaxList.trim().length > 0){
+		var syntaxs = syntaxList.split(",");
+		for( var i = 0; i<syntaxs.length; i++ ){
+			switch(syntaxs[i].toString().trim().toLowerCase()){
+				case 'c':{
+					options += '<option value=\"c_cpp\">C</option>';break;
+				}
+				case 'cpp':{
+					options += '<option value=\"c_cpp\">C++/CPP</option>';break;
+				}
+				case 'c++':{
+					options += '<option value=\"c_cpp\">C++/CPP</option>';break;
+				}
+				case 'java':{
+					options += '<option value=\"java\">Java</option>';break;
+								}
+				case 'php':{
+					options += '<option value=\"php\">PHP</option>';break;
+				}
+				case 'perl':{
+					options += '<option value=\"perl\">Perl</option>';break;
+				}
+				case 'python':{
+					options += '<option value=\"python\">Python</option>';break;
+				}
+				case 'c#':{
+					options += '<option value=\"csharp\">C#</option>';break;
+				}
+				case 'csharp':{
+					options += '<option value=\"csharp\">C#</option>';break;
+				}
+				case 'javascript':{
+					options += '<option value=\"javascript\">Javascript</option>';break;
+				}
+				case 'jsp':{
+					options += '<option value=\"jsp\">JSP</option>';break;
+				}
+				case 'json':{
+					options += '<option value=\"json\">json</option>';break;
+				}
+				case 'lisp':{
+					options += '<option value=\"lisp\">Lisp</option>';break;
+				}
+				case 'sql':{
+					options += '<option value=\"sql\">SQL</option>';break;
+				}
+				case 'livescript':{
+					options += '<option value=\"livescript\">Livescript</option>';break;
+				}
+				case 'pascal':{
+					options += '<option value=\"pascal\">Pascal</option>';break;
+				}
+				case 'text':{
+					options += '<option value=\"text\">Text</option>';break;
+				}
+				case 'xml':{
+					options += '<option value=\"xml\">XML</option>';break;
+				}
+				case 'vbscript':{
+					options += '<option value=\"vbscript\">VBScript</option>';break;
+				}
+				case 'css':{
+					options += '<option value=\"css\">CSS</option>';break;
+				}
+				case 'coldfusion':{
+					options += '<option value=\"coldfusion\">ColdFusion</option>';break;
+				}
+				case 'html':{
+					options += '<option value=\"html\">HTML</option>';break;
+				}
+				case 'pgsql':{
+					options += '<option value=\"pgsql\">pgSql</option>';break;
+				}
+				case 'ruby':{
+					options += '<option value=\"ruby\">ruby</option>';break;
+				}
+				case 'dart':{
+					options += '<option value=\"dart\">Dart</option>';break;
+				}
+				case 'diff':{
+					options += '<option value=\"diff\">Diff</option>';break;
+				}
+				case 'dot':{
+					options += '<option value=\"dot\">Dot</option>';break;
+				}
+				case 'powershell':{
+					options += '<option value=\"powershell\">Powershell</option>';break;
+				}
+				case 'rdoc':{
+					options += '<option value=\"rdoc\">RDoc</option>';break;
+				}
+				case 'rhtml':{
+					options += '<option value=\"rhtml\">RHTML</option>';break;
+				}
+				case 'xquery':{
+					options += '<option value=\"xquery\">XQuery</option>';break;
+				}
+				case 'objectivec':{
+					options += '<option value=\"objectivec\">Objective C</option>';break;
+				}
+				case 'sh':{
+					options += '<option value=\"sh\">SH</option>';break;
+				}
+				case 'tcl':{
+					options += '<option value=\"tcl\">TCL</option>';break;
+				}
+				case 'asciidoc':{
+					options += '<option value=\"asciidoc\">AsciiDoc</option>';break;
+				}
+				case 'c9search':{
+					options += '<option value=\"c9search\">C9Search</option>';break;
+				}
+				case 'coffee':{
+					options += '<option value=\"coffee\">CoffeeScript</option>';break;
+				}
+				case 'curly':{
+					options += '<option value=\"curly\">Curly</option>';break;
+				}
+					
+			}
+		}
+	}
+	var syntax = '';
+	if(options.length > 0){
+		syntax += '<div><select onchange=\"changeSyntax(\''+editor_id+'\',this)\" id=\"selectSyntax_'+editor_id+'\">'+
+					'<option value="">--Syntax--</option>'+
+					options + '</div>';
+	}
+	
 	return syntax;
 }
 
