@@ -44,7 +44,10 @@ AceEditor.init(editor_id ,{ configration });
       confirmOnCloseFile:true|false,
       wordWrap:true|false
       toolbaar:string (tools separated with comma ',')
+	Example:- toolbar:"new_file, select_font, word_wrap, help",
+
       syntax:string (syntax/mode separated with comma ',')
+	Example:- syntax:"c,cpp,c++,java,php,perl,python,csharp,c#,javascript,jsp,json,lisp,sql,livescript,pascal,text,xml,vbscript,coldfusion,css,html,pgsql,ruby,dart,diff,dot,powershell,rdoc,rhtml,objectivec,xquery,sh,tcl,asciidoc,c9search,coffee,curly"
 
 Functions:
 
