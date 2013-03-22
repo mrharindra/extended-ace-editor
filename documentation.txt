@@ -43,6 +43,8 @@ AceEditor.init(editor_id ,{ configration });
       callbackOnChangeFile:function name,
       confirmOnCloseFile:true|false,
       wordWrap:true|false
+      toolbaar:string (tools separated with comma ',')
+      syntax:string (syntax/mode separated with comma ',')
 
 Functions:
 
