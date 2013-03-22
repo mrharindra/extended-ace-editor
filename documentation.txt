@@ -1,3 +1,8 @@
+/*
+*Harindra Chaudhary
+*harindra.tech@gmail.com
+*/
+
 INITIALIZE EXTENDED ACE EDITOR:
 
 <script type="text/javascript" src=" .../.../ace_editor/src/ace.js"></script>
