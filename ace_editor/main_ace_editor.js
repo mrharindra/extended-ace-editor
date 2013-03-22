@@ -2,7 +2,6 @@
  * @ Harindra Chaudhary
 */
 
-var loader = false;
 window.AceEditor = (function(){
 	this.defaultConfig = {theme:"twilight",isMultiFile:false};
 	this.AceEditorConfig = new Array();
@@ -139,6 +138,7 @@ function findBaseUrl(editor_id){
 	this.baseURL = url;
 }
 
+var loader = false;
 function loadCSS(){
 	if(!loader){
 		if(this.baseURL != undefined && this.baseURL.length > 0){
