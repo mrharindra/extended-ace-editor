@@ -3,8 +3,6 @@
 *harindra.tech@gmail.com
 */
 
-*/
-
 window.AceEditor = (function(){
 	this.defaultConfig = {theme:"twilight",isMultiFile:false};
 	this.AceEditorConfig = new Array();
