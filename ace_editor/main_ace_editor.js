@@ -1,5 +1,8 @@
 /*
- * @ Harindra Chaudhary
+*Harindra Chaudhary
+*harindra.tech@gmail.com
+*/
+
 */
 
 window.AceEditor = (function(){
