@@ -348,6 +348,7 @@ function createDiv(editor_id){
 		textarea.setAttribute("name", "textarea_"+editor_id);
 		textarea.setAttribute("class", "textarea_"+editor_id);
 		textarea.style.display="none";
+		textarea.style.resize = "none";
 		textarea.style.width = editorEL.style.width;
 		textarea.style.height = editorEL.style.height;
 		textarea.onblur = updateFileValue;
@@ -364,6 +365,7 @@ function createDiv(editor_id){
 		newEditorDiv.style.width = editorEL.style.width;
 		newEditorDiv.style.height = editorEL.style.height;
 		editorEL.style.display = "none";
+		editorEL.style.resize = "none";
 		editorEL.parentNode.insertBefore(newEditorDiv, editorEL.nextSibling);
 		editorEL.onblur = updateFileValue;
 		
