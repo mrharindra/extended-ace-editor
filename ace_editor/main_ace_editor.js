@@ -195,7 +195,12 @@ function createNewFile(editor_id){
 function changeFile(editorFileId,editor_id){
 	try{
 		var file = this.AceEditorConfig[editor_id]['file'][editorFileId];
-		var elements = document.getElementsByClassName(file['fileClass']);
+		var elements;
+		if(document.getElementsByClassName){
+			elements = document.getElementsByClassName(file['fileClass']);
+		}else{
+			elements = document.querySelectorAll("."+file['fileClass']);
+		}
 		for(var i=0;i<elements.length;i++ ){
 			elements[i].style.display = "none";
 		}
@@ -204,7 +209,11 @@ function changeFile(editorFileId,editor_id){
 		
 		var isMultiFile = this.AceEditorConfig[editor_id]['config'].isMultiFile;
 		if(isMultiFile){
-			elements = document.getElementsByClassName(file['fileNameClass']);
+			if(document.getElementsByClassName){
+				elements = document.getElementsByClassName(file['fileNameClass']);
+			}else{
+				elements = document.querySelectorAll("."+file['fileNameClass']);
+			}
 			for(var i=0;i<elements.length;i++ ){
 				elements[i].className = elements[i].className.replace(" activeFile","");
 			}
