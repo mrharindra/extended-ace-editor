@@ -115,6 +115,17 @@ window.AceEditor = (function(){
 						closeFile(fileId, editor_id);
 					}
 				}
+			},
+			setReadOnlyAllFiles: function(editor_id, flag){
+				for(var fileId in AceEditorConfig[editor_id]['file']){
+					 AceEditorConfig[editor_id]['file'][fileId]['editor'].setReadOnly(flag);
+				}
+			},
+			setReadOnlyFile: function(editor_id, fileId, flag){
+				AceEditorConfig[editor_id]['file'][fileId]['editor'].setReadOnly(flag);
+			},
+			setReadOnlyCurrentFile: function(editor_id, flag){
+				AceEditorConfig[editor_id]['currentFile']['editor'].setReadOnly(flag);
 			}
 	};
 	return AceEditor;
