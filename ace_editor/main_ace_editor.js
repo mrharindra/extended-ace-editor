@@ -672,7 +672,7 @@ function selectSyntaxTool(editor_id){
 	if(options.length > 0){
 		syntax += '<div><select onchange=\"changeSyntax(\''+editor_id+'\',this)\" id=\"selectSyntax_'+editor_id+'\">'+
 					'<option value="">--Syntax--</option>'+
-					options + '</div>';
+					options + '</select></div>';
 	}
 	
 	return syntax;
