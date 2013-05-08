@@ -127,6 +127,7 @@ window.AceEditor = (function(){
 			setReadOnlyCurrentFile: function(editor_id, flag){
 				AceEditorConfig[editor_id]['currentFile']['editor'].setReadOnly(flag);
 			}
+			
 	};
 	return AceEditor;
 })();
@@ -680,18 +681,18 @@ function selectSyntaxTool(editor_id){
 
 function selectFontTool(editor_id){
 	var fontSize = '<div><select onchange=\"changeFont(\''+editor_id+'\',this)\" id=\"selectFont_'+editor_id+'\">'+
-	'<option value=\"\">--Font size--</option>'+
-	'<option value=\"10px\">10px</option>'+
-	'<option value=\"11px\">11px</option>'+
-	'<option value=\"12px\">12px</option>'+
-	'<option value=\"13px\">13px</option>'+
-	'<option value=\"14px\">14px</option>'+
-	'<option value=\"15px\">15px</option>'+
-	'<option value=\"16px\">16px</option>'+
-	'<option value=\"18px\">18px</option>'+
-	'<option value=\"20px\">20px</option>'+
-	'</select>'+
-	'</div>';
+		'<option value=\"\">--Font size--</option>'+
+		'<option value=\"10px\">10px</option>'+
+		'<option value=\"11px\">11px</option>'+
+		'<option value=\"12px\">12px</option>'+
+		'<option value=\"13px\">13px</option>'+
+		'<option value=\"14px\">14px</option>'+
+		'<option value=\"15px\">15px</option>'+
+		'<option value=\"16px\">16px</option>'+
+		'<option value=\"18px\">18px</option>'+
+		'<option value=\"20px\">20px</option>'+
+		'</select>'+
+		'</div>';
 	return fontSize;
 }
 
@@ -739,7 +740,7 @@ function fullScreen(editor_id){
 		editor.style.left = "0";
 		editor.style.right = "0";
 		editor.style.bottom = "0";
-		editor.style.zIndex = "1000";
+		editor.style.zIndex = "100";
 		this.AceEditorConfig[editor_id]['currentFile']['editor'].resize();
 	}
 	else {
@@ -791,11 +792,11 @@ function changeTheme(editor_id,obj){
 
 function helpToggle(help_editor){
 	var helpDiv = document.getElementById(help_editor);
-	if(helpDiv != undefined && (helpDiv.style.display == 'block' || helpDiv.style.display == '')){
-		helpDiv.style.display = "none";
-	}
-	else if( helpDiv != undefined && helpDiv.style.display == 'none' ){
+	if(helpDiv != undefined && (helpDiv.style.display == 'none' || helpDiv.style.display == '')){
 		helpDiv.style.display = "block";
+	}
+	else if( helpDiv != undefined && helpDiv.style.display == 'block' ){
+		helpDiv.style.display = "none";
 	}
 }
 
