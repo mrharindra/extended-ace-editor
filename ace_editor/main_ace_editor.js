@@ -546,11 +546,15 @@ function fullScreenTool(editor_id){
 
 function selectSyntaxTool(editor_id){
 	var syntaxList = this.AceEditorConfig[editor_id]['config'].syntax;
+	if(syntaxList == undefined || syntaxList == null){
+		syntaxList = 'c,cpp,java,php,perl,python,c#,csharp,javascript,jsp,json,lisp,sql,livescript,pascal,'+
+						'text,xml,vbscript,css,coldfusion,html,pgsql,ruby,dart,dot,diff,rdoc,powershell,'+
+						'rhtml,xquery,objectivec,sh,tcl,asciidoc,c9search,coffee,curly';
+	}
+	var syntaxs = syntaxList.split(",");
 	var options = '';
-	if(syntaxList != undefined && syntaxList.trim().length > 0){
-		var syntaxs = syntaxList.split(",");
-		for( var i = 0; i<syntaxs.length; i++ ){
-			switch(syntaxs[i].toString().trim().toLowerCase()){
+	for( var i = 0; i<syntaxs.length; i++ ){
+		switch(syntaxs[i].toString().trim().toLowerCase()){
 				case 'c':{
 					options += '<option value=\"c_cpp\">C</option>';break;
 				}
@@ -666,9 +670,9 @@ function selectSyntaxTool(editor_id){
 					options += '<option value=\"curly\">Curly</option>';break;
 				}
 					
-			}
 		}
 	}
+	
 	var syntax = '';
 	if(options.length > 0){
 		syntax += '<div><select onchange=\"changeSyntax(\''+editor_id+'\',this)\" id=\"selectSyntax_'+editor_id+'\">'+
