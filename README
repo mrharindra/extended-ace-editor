@@ -1,7 +1,7 @@
 Extended Ace editor
 
 This is actually ace editor ( http://ace.ajax.org/ ) in which we added toolbar with editor.
-No need to manually write code for changing mode(syntax) , chainging theme, changing font etc.
+No need to manually write code for changing mode(syntax) , changing theme, changing font etc.
 When ace editor is embeded in web page a tool bar come with editor,
 
 Tool bar has buttons for open new File , fullscreen , change mode(syntax), change theme, change font, word wrpa toggle and help ,
