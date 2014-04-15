@@ -45,7 +45,7 @@ AceEditor.init(editor_id ,{ configration });
       defaultFileName:string,
       isMultiFile:true|false,
       theme:string,
-      callbackOnChangeFile:function name,
+      callbackOnChangeFile:function name as String,
       confirmOnCloseFile:true|false,
       wordWrap:true|false
       toolbaar:string (tools separated with comma ',')
