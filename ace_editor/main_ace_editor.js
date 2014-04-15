@@ -247,8 +247,15 @@ function changeFile(editorFileId,editor_id){
 	
 	try{
 		var fileChangeCallback =   this.AceEditorConfig[editor_id]['config'].callbackOnChangeFile;
-		if(fileChangeCallback != undefined && fileChangeCallback.length > 0){
-			window[fileChangeCallback]();
+		if( fileChangeCallback != undefined && fileChangeCallback != null ){
+			
+			if (typeof fileChangeCallback === "function"){
+				fileChangeCallback();
+		        }
+		        else if( typeof fileChangeCallback === "string" ){
+		         	window[fileChangeCallback]();
+		        }
+			
 		}
 	}catch(err){ console.log("Error in change file callback...");console.log(err); }
 	
