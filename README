@@ -1,15 +1,12 @@
-Extended Ace editor
+Extended Ace editor:
 
 This is actually ace editor ( http://ace.ajax.org/ ) in which we added toolbar with editor.
 No need to manually write code for changing mode(syntax) , changing theme, changing font etc.
-When ace editor is embeded in web page a tool bar come with editor,
+When ace editor is embeded in web page a toolbar come with editor,
 
-Tool bar has buttons for open new File , fullscreen , change mode(syntax), change theme, change font, word wrpa toggle and help ,
+Toolbar has buttons for open new File , fullscreen , change mode(syntax), change theme, change font, word wrpa toggle and help ,
 We also add a functionality to toogle editor between textarea and editor.
 
-
-See demo:
-
-http://202.141.152.44/parikshak/ace_editor.html
-
-http://202.141.152.44/parikshak/demo.html
+See demo using Parikshak (An Automated Program Grading & Analysis Tool):
+http://http://www.parikshak.in/ace_editor.html
+http://http://www.parikshak.in/demo.html
