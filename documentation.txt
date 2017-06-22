@@ -118,10 +118,10 @@ Functions:
 	return the file name of given fileId
 
    AceEditor.setReadOnlyAllFiles(editor_id, flag);
-	set read only to all file in editor haviing id editor_id, flag: true | false
+	set read only to all file in editor having id editor_id, flag: true | false
 
     AceEditor.setReadOnlyFile: function(editor_id, fileId, flag){
-	set read only to given fileId in editor haviing id editor_id, flag: true | false
+	set read only to given fileId in editor having id editor_id, flag: true | false
 
     AceEditor.setReadOnlyCurrentFile: function(editor_id, flag){
-	set read only to current file in editor haviing id editor_id, flag: true | false
+	set read only to current file in editor having id editor_id, flag: true | false
