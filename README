@@ -4,8 +4,8 @@ This is actually ace editor ( http://ace.ajax.org/ ) in which we added toolbar w
 No need to manually write code for changing mode(syntax) , changing theme, changing font etc.
 When ace editor is embeded in web page a toolbar come with editor,
 
-Toolbar has buttons for open new File , fullscreen , change mode(syntax), change theme, change font, word wrpa toggle and help ,
-We also add a functionality to toogle editor between textarea and editor.
+Toolbar has buttons for open new file , fullscreen , change mode(syntax), change theme, change font, word wrpa toggle and help ,
+We also add a functionality to toggle editor between textarea and editor.
 
 See demo using Parikshak (An Automated Program Grading & Analysis Tool):
 http://www.parikshak.in/ace_editor.html
